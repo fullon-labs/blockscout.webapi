@@ -36,31 +36,31 @@ function getTextAdData () {
   return new Promise((resolve) => {
     const displayAd = showAd()
     if (displayAd) {
-      $.get('https://request-global.czilladx.com/serve/native.php?z=19260bf627546ab7242', function (data) {
-        if (!data) {
-          if (customAds && customAds.length > 0) {
-            try {
-              const ind = getRandomInt(0, customAds.length)
-              const inHouse = true
-              adjustPaddingForTextAd(displayAd, true)
-              resolve({ data: customAds[ind], inHouse })
-            } catch (_e) {
-              adjustPaddingForTextAd(displayAd, false)
-              resolve({ data: null, inHouse: null })
-            }
-          } else {
-            adjustPaddingForTextAd(displayAd, false)
-            resolve({ data: null, inHouse: null })
-          }
-        } else {
-          const inHouse = false
-          adjustPaddingForTextAd(displayAd, true)
-          resolve({ data, inHouse })
-        }
-      })
+      // $.get('https://request-global.czilladx.com/serve/native.php?z=19260bf627546ab7242', function (data) {
+      //   if (!data) {
+      //     if (customAds && customAds.length > 0) {
+      //       try {
+      //         const ind = getRandomInt(0, customAds.length)
+      //         const inHouse = true
+      //         adjustPaddingForTextAd(displayAd, true)
+      //         resolve({ data: customAds[ind], inHouse })
+      //       } catch (_e) {
+      //         adjustPaddingForTextAd(displayAd, false)
+      //         resolve({ data: null, inHouse: null })
+      //       }
+      //     } else {
+      //       adjustPaddingForTextAd(displayAd, false)
+      //       resolve({ data: null, inHouse: null })
+      //     }
+      //   } else {
+      //     const inHouse = false
+      //     adjustPaddingForTextAd(displayAd, true)
+      //     resolve({ data, inHouse })
+      //   }
+      // })
     } else {
-      adjustPaddingForTextAd(displayAd, false)
-      resolve({ data: null, inHouse: null })
+      // adjustPaddingForTextAd(displayAd, false)
+      // resolve({ data: null, inHouse: null })
     }
   })
 }
@@ -68,25 +68,25 @@ function getTextAdData () {
 function fetchTextAdData () {
   if (showAd()) {
     getTextAdData()
-      .then(({ data, inHouse }) => {
-        if (data) {
-          const prefix = inHouse ? 'Featured' : 'Sponsored'
-          const { ad: { name, description_short: descriptionShort, thumbnail, url, cta_button: ctaButton, impressionUrl } } = data
-          $('.ad-name').text(name)
-          $('.ad-short-description').text(descriptionShort)
-          $('.ad-cta-button').text(ctaButton)
-          $('.ad-url').attr('href', url)
-          $('.ad-prefix').text(prefix)
-          $('.ad').show()
-          const urlObject = new URL(url)
-          if (urlObject.hostname === 'nifty.ink') {
-            $('.ad-img-url').replaceWith('🎨')
-          } else {
-            $('.ad-img-url').attr('src', thumbnail)
-          }
-          countImpressions(impressionUrl)
-        }
-      })
+      // .then(({ data, inHouse }) => {
+      //   if (data) {
+      //     const prefix = inHouse ? 'Featured' : 'Sponsored'
+      //     const { ad: { name, description_short: descriptionShort, thumbnail, url, cta_button: ctaButton, impressionUrl } } = data
+      //     $('.ad-name').text(name)
+      //     $('.ad-short-description').text(descriptionShort)
+      //     $('.ad-cta-button').text(ctaButton)
+      //     $('.ad-url').attr('href', url)
+      //     $('.ad-prefix').text(prefix)
+      //     $('.ad').show()
+      //     const urlObject = new URL(url)
+      //     if (urlObject.hostname === 'nifty.ink') {
+      //       $('.ad-img-url').replaceWith('🎨')
+      //     } else {
+      //       $('.ad-img-url').attr('src', thumbnail)
+      //     }
+      //     countImpressions(impressionUrl)
+      //   }
+      // })
   }
 }
 
