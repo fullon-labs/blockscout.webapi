@@ -8,6 +8,7 @@ function countImpressions (impressionUrl) {
 }
 
 function showAd () {
+  return false;
   const domainName = window.location.hostname
   if (domainName === 'blockscout.com' || domainName.endsWith('.blockscout.com')) {
     $('.js-ad-dependant-mb-2').addClass('mb-2')
@@ -67,7 +68,7 @@ function getTextAdData () {
 
 function fetchTextAdData () {
   if (showAd()) {
-    getTextAdData()
+      //getTextAdData()
       // .then(({ data, inHouse }) => {
       //   if (data) {
       //     const prefix = inHouse ? 'Featured' : 'Sponsored'

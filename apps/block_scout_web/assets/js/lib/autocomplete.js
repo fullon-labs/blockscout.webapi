@@ -49,7 +49,7 @@ const resultsListElement = (list, data) => {
 
   list.prepend(info)
 
-  fetchTextAdData()
+  //fetchTextAdData()
 }
 export const searchEngine = (query, record) => {
   const queryLowerCase = query.toLowerCase()
@@ -168,18 +168,18 @@ const openOnFocus = (event, type) => {
       autoCompleteJSMobile && autoCompleteJSMobile.start(query)
     }
   } else {
-    getTextAdData()
-      .then(({ data: adData, inHouse: _inHouse }) => {
-        if (adData) {
-          if (type === 'desktop') {
-            // @ts-ignore
-            autoCompleteJS && autoCompleteJS.start('###')
-          } else if (type === 'mobile') {
-            // @ts-ignore
-            autoCompleteJSMobile && autoCompleteJSMobile.start('###')
-          }
-        }
-      })
+    // getTextAdData()
+    //   .then(({ data: adData, inHouse: _inHouse }) => {
+    //     if (adData) {
+    //       if (type === 'desktop') {
+    //         // @ts-ignore
+    //         autoCompleteJS && autoCompleteJS.start('###')
+    //       } else if (type === 'mobile') {
+    //         // @ts-ignore
+    //         autoCompleteJSMobile && autoCompleteJSMobile.start('###')
+    //       }
+    //     }
+    //   })
   }
 }
 
