@@ -41,8 +41,8 @@ services:
     links:
       - db:database
     environment:
-        ETHEREUM_JSONRPC_HTTP_URL: https://testnet-api.flonscan.io
-        ETHEREUM_JSONRPC_TRACE_URL: https://testnet-api.flonscan.io
+        ETHEREUM_JSONRPC_HTTP_URL: https://t-evm-rpc.flonscan.io
+        ETHEREUM_JSONRPC_TRACE_URL: https://t-evm-rpc.flonscan.io
         ETHEREUM_JSONRPC_WS_URL: ws://host.docker.internal:8545/
         CHAIN_ID: '15555'
 
