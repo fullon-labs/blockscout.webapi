@@ -52,7 +52,7 @@ defmodule Explorer.Chain.Cache.Block do
   defp estimated_count_from_blocks do
     count = Helper.estimated_count_from("blocks")
 
-    if is_nil(count), do: 0, else: trunc(count * 0.90)
+    if is_nil(count), do: 0, else: trunc(count * 1.0)
   end
 
   defp handle_fallback(:count) do
